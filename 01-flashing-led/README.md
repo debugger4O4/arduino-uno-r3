@@ -1,3 +1,3 @@
 ## Мигающий светодиод.
 
-![IMG_4779.gif](content/IMG_4779.gif)
+![01-flashing-led_content_IMG_4779.gif](content/01-flashing-led_content_IMG_4779.gif)
