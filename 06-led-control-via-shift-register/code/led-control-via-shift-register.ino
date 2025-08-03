@@ -1,7 +1,7 @@
 // Определение номеров пинов Arduino, подключенных к микросхеме 74HC595.
-int latchPin = 8; // Пин, подключенный к ST_CP (RCLK) регистра сдвига.
-int clockPin = 12; // Пин, подключенный к SH_CP (SRCLK) регистра сдвига.
-int dataPin = 11; // Пин, подключенный к DS (DATA) регистра сдвига.
+int latchPin = 8; // Пин, подключенный к ST_CP (RCLK) регистра сдвига. Управляет записью данных.
+int clockPin = 12; // Пин, подключенный к SH_CP (SRCLK) регистра сдвига. Синхронизирует передачу.
+int dataPin = 11; // Пин, подключенный к DS (DATA) регистра сдвига. Передает биты данных.
 
 void setup() {
   // Настраиваем пины микроконтроллера как выходы.
@@ -24,7 +24,7 @@ void loop() {
     // Опускаем latchPin перед началом передачи данных.
     digitalWrite(latchPin, LOW);
     // Отправляем биты в регистр сдвига.
-    shiftOut(dataPin, clockPin, LSBFIRST, numberToDisplay);
+    shiftOut(dataPin, clockPin, LSBFIRST, numberToDisplay); // Последовательно отправляет биты.
     // Поднимаем latchPin после передачи данных для активации выходов регистра сдвига.
     digitalWrite(latchPin, HIGH);
     
